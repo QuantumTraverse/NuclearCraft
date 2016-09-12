@@ -544,6 +544,7 @@ bronzeBearing.name=Bronze Bearing
 MgBWiring.name=Magnesium Diboride Wiring
 computerPlate.name=Computer Plate
 mechanicalPart.name=Mechanical Part
+plastic.name=Bioplastic
 
 item.pistol.name=Pistol
 item.dUBullet.name=DU Bullet
@@ -612,6 +613,10 @@ item.blank.name=Blank
 item.antimatter.name=Antimatter (Temporary)
 
 item.lithiumIonBattery.name=Lithium Ion Battery
+
+item.geiger.name=Geiger Counter
+item.radaway.name=RadAway
+item.radX.name=Rad-X
 
 achievement.nuclearFurnace=Speed Smelting
 achievement.nuclearFurnace.desc=Make a Nuclear Furnace

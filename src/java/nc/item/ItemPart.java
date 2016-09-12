@@ -11,7 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemPart extends ItemMeta {
 
 	public ItemPart() {
-		super("parts", "parts", 20);
+		super("parts", "parts", 21);
 	}
 	
 	@SuppressWarnings({ "rawtypes" })
@@ -55,6 +55,7 @@ public class ItemPart extends ItemMeta {
 		    case 17: return "MgBWiring";
 		    case 18: return "computerPlate";
 		    case 19: return "mechanicalPart";
+		    case 20: return "plastic";
 		    default: return this.getUnlocalizedName();
 	    }
 	}

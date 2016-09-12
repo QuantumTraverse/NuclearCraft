@@ -68,7 +68,7 @@ public class ItemBlockCoolerBlock extends ItemBlockNC {
 		};
 		else if (block == NCBlocks.coolantCoolerBlock) return new String[] {
 			"Doubly effective when adjacent to at",
-			"least one Water block."
+			"least one Water Reactor Cooler."
 		};
 		else return new String[] {
 				"",

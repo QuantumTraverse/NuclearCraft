@@ -32,6 +32,7 @@ public class ContainerFusionReactorSteam extends Container {
     
     public int lastFluid;
     public int lastSteam;
+    public int lastSteamType;
     
     public int lastHOut;
     public int lastDOut;
@@ -156,6 +157,9 @@ public class ContainerFusionReactorSteam extends Container {
             
             icrafting.sendProgressBarUpdate(this, 59, (int) this.entity.steam);
             icrafting.sendProgressBarUpdate(this, 60, (int) this.entity.steam >> 16);
+            
+            icrafting.sendProgressBarUpdate(this, 61, this.entity.steamType);
+            icrafting.sendProgressBarUpdate(this, 62, this.entity.steamType >> 16);
         }        
     }
 
@@ -227,6 +231,9 @@ public class ContainerFusionReactorSteam extends Container {
         
         if (slot == 59){ this.lastSteam = this.upcastShort(value); }
         if (slot == 60){ this.entity.steam = (int) this.lastSteam | value << 16; }
+        
+        if (slot == 61){ this.lastSteamType = this.upcastShort(value); }
+        if (slot == 62){ this.entity.steamType = this.lastSteamType | value << 16; }
     }
     
     private int upcastShort(int input) {

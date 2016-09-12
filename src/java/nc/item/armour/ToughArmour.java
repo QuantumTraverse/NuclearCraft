@@ -1,10 +1,14 @@
 package nc.item.armour;
 
+import java.util.List;
+
 import nc.NuclearCraft;
 import nc.item.NCItems;
+import nc.util.InfoNC;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
@@ -46,4 +50,10 @@ public class ToughArmour extends ItemArmor {
 			return null;
 		}
 	}
+	
+	@SuppressWarnings({ "rawtypes" })
+	public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean whatIsThis) {
+        super.addInformation(itemStack, player, list, whatIsThis);
+        if (info.length > 0) InfoNC.infoFull(list, info);
+    }
 }

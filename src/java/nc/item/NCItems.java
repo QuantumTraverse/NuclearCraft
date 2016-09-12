@@ -76,4 +76,8 @@ public class NCItems {
 	public static Item antimatter;
 	
 	public static Item lithiumIonBattery;
+	
+	public static Item geiger;
+	public static Item radaway;
+	public static Item radX;
 }

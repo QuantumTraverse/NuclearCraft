@@ -1,13 +1,18 @@
 package nc.itemblock.basic;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlockWithMetadata;
-import net.minecraft.item.ItemStack;
 
-public class ItemBlockBlock extends ItemBlockWithMetadata {
+import nc.itemblock.ItemBlockMeta;
+import nc.player.PlayerRads;
+import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
+public class ItemBlockBlock extends ItemBlockMeta {
 
 	public ItemBlockBlock(Block block) {
-		super(block, block);
+		super(block);
 	}
 
 	public String getUnlocalizedName(ItemStack stack) {
@@ -25,5 +30,22 @@ public class ItemBlockBlock extends ItemBlockWithMetadata {
 			case 10: return "magnesiumBlock";
 			default: return this.getUnlocalizedName();
 		}
+	}
+	
+	public String[] info(String string) {
+		String[] inf = {
+			string
+		};
+		return inf;
+	}
+	
+	public void onUpdate(ItemStack stack, World world, Entity player, int num, boolean bool) {
+		if (stack != null) {
+			if (player instanceof EntityPlayer && stack.getItemDamage() >= 4 && stack.getItemDamage() <= 5) {
+				PlayerRads playerRads = PlayerRads.get((EntityPlayer) player);
+				playerRads.addRads(4F*stack.stackSize);
+			}
+		}
+		super.onUpdate(stack, world, player, num, bool);
 	}
 }

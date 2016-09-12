@@ -78,5 +78,8 @@ public class AssemblerRecipes extends NCRecipeHelper {
 		addRecipe(oreStack("plateAdvanced", NuclearCraft.workspace ? 10 : 6), new ItemStack(NCBlocks.steamDecompressor, NuclearCraft.workspace ? 5 : 3), new ItemStack(Items.stick, 0), new ItemStack(Items.stick, 0), new ItemStack(NCBlocks.denseSteamDecompressor, 1));
 		addRecipe(oreStack("ingotLithiumManganeseDioxide", NuclearCraft.workspace ? 4 : 3), oreStack("dustLithium", NuclearCraft.workspace ? 4 : 1), oreStack("ingotHardCarbon", NuclearCraft.workspace ? 4 : 3), oreStack("plateAdvanced", NuclearCraft.workspace ? 4 : 2), new ItemStack(NCItems.lithiumIonBattery, 1));
 		addRecipe(new ItemStack(NCBlocks.machineBlock, 1), oreStack("plateLead", NuclearCraft.workspace ? 12 : 4), oreStack("ingotTough", NuclearCraft.workspace ? 8 : 2), oreStack("ingotHardCarbon", NuclearCraft.workspace ? 4 : 2), new ItemStack(NCBlocks.recyclerIdle, 1));
+		
+		addRecipe(new ItemStack(NCItems.parts, 1, 12), new ItemStack(NCItems.fuel, 4, 40), new ItemStack(NCItems.parts, 2, 18), new ItemStack(Items.iron_ingot, 4), new ItemStack(NCItems.geiger, 1));
+		addRecipe(new ItemStack(Items.sugar, 2), new ItemStack(NCItems.fuel, 1, 34), new ItemStack(Blocks.red_mushroom, 1), new ItemStack(NCItems.parts, 2, 20), new ItemStack(NCItems.radaway, 1));
 	}
 }

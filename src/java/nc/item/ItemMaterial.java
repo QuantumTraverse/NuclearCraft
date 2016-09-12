@@ -2,9 +2,12 @@ package nc.item;
 
 import java.util.List;
 
+import nc.player.PlayerRads;
 import nc.util.InfoNC;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -20,6 +23,20 @@ public class ItemMaterial extends ItemMeta {
         super.addInformation(itemStack, player, list, whatIsThis);
         if (info(itemStack.getItemDamage()) == InfoNC.nul); else if (info(itemStack.getItemDamage()).length > 0) InfoNC.infoFull(list, info(itemStack.getItemDamage()));
     }
+	
+	public void onUpdate(ItemStack stack, World world, Entity player, int num, boolean bool) {
+		if (stack != null) {
+			if (player instanceof EntityPlayer) {
+				for (int i : radItems) {
+					if (i == stack.getItemDamage()) {
+						PlayerRads playerRads = PlayerRads.get((EntityPlayer) player);
+						playerRads.addRads(radDamage[i]*stack.stackSize);
+					}
+				}
+			}
+		}
+		super.onUpdate(stack, world, player, num, bool);
+	}
 	
 	public String[] info(int m) {
 		if (m == 73) return info("Rarely drops from Redstone Ore.");
@@ -166,4 +183,7 @@ public class ItemMaterial extends ItemMeta {
 		    default: return this.getUnlocalizedName();
 	    }
 	}
+	
+	public int[]   radItems  = {4   , 5   , 19  , 20  , 24, 25   , 26, 27   , 28, 29   , 30, 31   , 32, 33   , 34, 35   , 36, 37   , 38, 39   , 40, 41   , 53  , 54  , 55, 56   , 57, 58   , 59, 60   , 61, 62   , 63, 64   , 65, 66   , 67, 68   , 82, 83   , 84, 85   , 86, 87   , 88, 89   , 90, 91   , 92, 93   , 94, 95   , 96, 97   , 98, 99   , 100, 101  , 102, 103  , 104, 105  , 106, 107  , 108, 109  , 110, 111  , 112, 113  , 114, 115  , 116, 117  , 118, 119  , 120, 121  , 122, 123  , 124, 125  , 126 , 127 };
+	public float[] radDamage = {0.5F, 0.5F, 0.5F, 0.5F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 0.5F, 0.5F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F, 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 1F , 0.25F, 0.5F, 0.5F};
 }

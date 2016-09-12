@@ -15,5 +15,6 @@
 "shield2": {"category": "master", "sounds": ["shield2"]},
 "shield3": {"category": "master", "sounds": ["shield3"]},
 "shield4": {"category": "master", "sounds": ["shield4"]},
-"shield5": {"category": "master", "sounds": ["shield5"]}
+"shield5": {"category": "master", "sounds": ["shield5"]},
+"geiger": {"category": "master", "sounds": ["geiger"]}
 }

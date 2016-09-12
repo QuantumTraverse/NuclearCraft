@@ -73,6 +73,7 @@ public class FactoryRecipes extends NCRecipeHelper {
     	addRecipe(new ItemStack(Items.coal, 64), new ItemStack(Items.diamond, 1));
     	
     	addRecipe(new ItemStack(NCItems.lithiumIonBattery, 8), new ItemStack(NCBlocks.lithiumIonBatteryBlock, 1));
+    	addRecipe(new ItemStack(Items.reeds, 2), new ItemStack(NCItems.parts, 1, 20));
     }
 	
 	public void oreIngot(String type, int amount) {

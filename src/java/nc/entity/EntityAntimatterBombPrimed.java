@@ -109,10 +109,10 @@ public class EntityAntimatterBombPrimed extends Entity {
 	private void explode(World world) {
         int x = (int) Math.floor(posX); int y = (int) Math.floor(posY); int z = (int) Math.floor(posZ);
         
-        for (int i = -((int)0.8D*NuclearCraft.explosionRadius); i <= ((int)0.8D*NuclearCraft.explosionRadius); i++) {
-    		for (int j = -((int)0.8D*NuclearCraft.explosionRadius); j <= ((int)0.8D*NuclearCraft.explosionRadius); j++) {
-    			for (int k = -((int)0.8D*NuclearCraft.explosionRadius); k <= ((int)0.8D*NuclearCraft.explosionRadius); k++) {
-    				if (i*i + j*j + k*k <= ((int)0.8D*NuclearCraft.explosionRadius)*((int)0.8D*NuclearCraft.explosionRadius) && world.getBlock(x + i, y + j, z + k) != Blocks.bedrock) {
+        for (int i = -((int)(0.8D*NuclearCraft.explosionRadius)); i <= ((int)(0.8D*NuclearCraft.explosionRadius)); i++) {
+    		for (int j = -((int)(0.8D*NuclearCraft.explosionRadius)); j <= ((int)(0.8D*NuclearCraft.explosionRadius)); j++) {
+    			for (int k = -((int)(0.8D*NuclearCraft.explosionRadius)); k <= ((int)(0.8D*NuclearCraft.explosionRadius)); k++) {
+    				if (i*i + j*j + k*k <= ((int)(0.8D*NuclearCraft.explosionRadius))*((int)(0.8D*NuclearCraft.explosionRadius)) && world.getBlock(x + i, y + j, z + k) != Blocks.bedrock) {
     					world.setBlockToAir(x + i, y + j, z + k);
     				}
     			}

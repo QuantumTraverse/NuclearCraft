@@ -69,6 +69,7 @@ public class TileFusionReactorSteam extends TileSteamProducer implements IEnergy
 	public int Li7Level2;
 	
 	public double steam;
+	public int steamType;
 	
 	public double HOut;
 	public double DOut;
@@ -868,20 +869,24 @@ public class TileFusionReactorSteam extends TileSteamProducer implements IEnergy
 			}
 		}
 		
-		SShown = (int) Math.ceil(newS);
+		SShown = (int) newS;
 		
 		if (steam + newS <= 10000000) steam += newS;
-        if ((int) (newS/efficiency)*100 < 2000 || steamType() == 1) {
+        if ((int) (newS/(efficiency + 0.000001D))*100 < 2000 || steamType() == 1) {
         	if (this.tank.getFluidAmount() != 0) if (this.tank.getFluid().getFluid() != NuclearCraft.steam) this.tank.drain(10000000, true);
-        	if (steam >= 2000) {
-        		this.tank.fill(new FluidStack(NuclearCraft.steam, 2000), true);
-        		steam -= 2000;
+        	for (int i = 0; i < 10; i++) {
+	        	if (steam >= 200) {
+	        		this.tank.fill(new FluidStack(NuclearCraft.steam, 200), true);
+	        		steam -= 200;
+	        	} else break;
         	}
-        } else if ((int) (newS/efficiency)*100 < 400000 || steamType() == 2) {
+        } else if ((int) (newS/(efficiency + 0.000001D))*100 < 400000 || steamType() == 2) {
         	if (this.tank.getFluidAmount() != 0) if (this.tank.getFluid().getFluid() != NuclearCraft.denseSteam) this.tank.drain(10000000, true);
-        	if (steam >= 400000) {
-        		this.tank.fill(new FluidStack(NuclearCraft.denseSteam, 400), true);
-        		steam -= 400000;
+        	for (int i = 0; i < 10; i++) {
+	        	if (steam >= 40000) {
+	        		this.tank.fill(new FluidStack(NuclearCraft.denseSteam, 40), true);
+	        		steam -= 40000;
+	        	} else break;
         	}
         } else {
         	if (this.tank.getFluidAmount() != 0) if (this.tank.getFluid().getFluid() != NuclearCraft.superdenseSteam) this.tank.drain(10000000, true);
@@ -900,10 +905,23 @@ public class TileFusionReactorSteam extends TileSteamProducer implements IEnergy
 	}
 	
 	public int steamType() {
-		if (this.tank.getFluidAmount() == 0) return 0;
-		if (this.tank.getFluid().getFluid() == NuclearCraft.steam) return 1;
-		if (this.tank.getFluid().getFluid() == NuclearCraft.denseSteam) return 2;
-		if (this.tank.getFluid().getFluid() == NuclearCraft.superdenseSteam) return 3;
+		if (this.tank.getFluidAmount() == 0) {
+			steamType = 0;
+			return 0;
+		}
+		if (this.tank.getFluid().getFluid() == NuclearCraft.steam) {
+			steamType = 1;
+			return 1;
+		}
+		if (this.tank.getFluid().getFluid() == NuclearCraft.denseSteam) {
+			steamType = 2;
+			return 2;
+		}
+		if (this.tank.getFluid().getFluid() == NuclearCraft.superdenseSteam) {
+			steamType = 3;
+			return 3;
+		}
+		steamType = 0;
 		return 0;
 	}
 
@@ -1301,6 +1319,7 @@ public class TileFusionReactorSteam extends TileSteamProducer implements IEnergy
 	    this.Li7Level2 = nbt.getInteger("Li7Level2");
 	    
 	    this.steam = nbt.getDouble("steam");
+	    this.steamType = nbt.getInteger("steamType");
 	    
 	    this.size = nbt.getInteger("size");
 	    this.problem = nbt.getString("problem");
@@ -1349,6 +1368,7 @@ public class TileFusionReactorSteam extends TileSteamProducer implements IEnergy
 	    nbt.setInteger("Li7Level2", this.Li7Level2);
 	    
 	    nbt.setDouble("steam", this.steam);
+	    nbt.setInteger("steamType", this.steamType);
 	    
 	    nbt.setInteger("size", this.size);
 	    nbt.setString("problem", this.problem);

@@ -8,7 +8,6 @@ import nc.NuclearCraft;
 import nc.block.NCBlocks;
 import nc.item.NCItems;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 public class InfoRecipes {
@@ -109,8 +108,7 @@ public class InfoRecipes {
 		fissionFuelInfo(62, NuclearCraft.baseRFHEPOx, NuclearCraft.baseFuelHEPOx, NuclearCraft.baseHeatHEPOx);
 		fissionFuelInfo(66, NuclearCraft.baseRFHEPOx, NuclearCraft.baseFuelHEPOx, NuclearCraft.baseHeatHEPOx);
 		
-		addRecipe(new ItemStack(Blocks.water), "-Generates an extra 1 RF/t-of power per block in-Fission Reactors");
-		addRecipe(new ItemStack(NCBlocks.graphiteBlock), "-Generates additional power-and heat in Fission Reactors--In a Fission Reactor of c-cells and heat level h, using-a fuel of base power P, each-Graphite block produces-c*P*(1+h/1000000)/10 RF/t-and c*P/5 H/t");
+		addRecipe(new ItemStack(NCBlocks.graphiteBlock), "-Generates additional power-and heat in Fission Reactors");
 		
 		addRecipe(new ItemStack(NCBlocks.speedBlock), "-Causes nuclear fuels to-deplete faster in Fission-Reactors");
 		
@@ -121,7 +119,7 @@ public class InfoRecipes {
 		coolerInfo(NCBlocks.enderiumCoolerBlock, NuclearCraft.enderiumCool, "Doubly effective when adjacent-to Graphite");
 		coolerInfo(NCBlocks.glowstoneCoolerBlock, NuclearCraft.glowstoneCool, "Quadrupally effective when-adjacent to Graphite on-all six sides");
 		coolerInfo(NCBlocks.heliumCoolerBlock, NuclearCraft.heliumCool, "Not affected by its-position in the structure");
-		coolerInfo(NCBlocks.coolantCoolerBlock, NuclearCraft.coolantCool, "Doubly effective when adjacent-to Water");
+		coolerInfo(NCBlocks.coolantCoolerBlock, NuclearCraft.coolantCool, "Doubly effective when adjacent-to a Water Reactor Cooler");
 		/*
 		addRecipe(new ItemStack(NCItems.dominoes), "-Paul's Favourite: He'll-follow anyone he sees-carrying this in their hand...--Restores 16 hunger");
 		addRecipe(new ItemStack(NCItems.boiledEgg), "-Restores 5 hunger");
