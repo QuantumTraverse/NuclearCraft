@@ -1,3 +1,24 @@
+v1.9d
+
++ Added player radiation count
++ Certain items and blocks will add radiation points to the player while in their inventory
++ Added RadAway which removes radiation points
++ Added Rad-X which causes the player to be more resistent to radiation
++ Added the Geiger Counter which can be used to find how irradiated the player is
+* Tough Alloy armour can also be used to protect against radiation
+* Radiation affects the player's health and may cause other negative effects
+
+* Changed Fission mechanics a bit to prevent certain exploits
+* Graphite now must be adjacent to a Fuel Cell Compartment to generate additional power
+* Fuel Cell Compartments can now be separated by a single Graphite block and still be counted as 'adjacent'
+* Improved usefulness of Coolant Reactor Coolers
+* Water no longer has any effect
+
+* Fixed Steam Fusion Reactor GUI... again
+* Fixed Antimatter and EMP explosions
+* Small changes to rare mob drops
+* Updated German language file - thanks to HbmMods
+
 v1.9c
 
 * Fixed Steam Fusion Reactor GUI to make clear what type of steam is being produced
