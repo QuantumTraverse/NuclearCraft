@@ -51,6 +51,7 @@ public class ItemFuel extends ItemMeta {
 		else if (m == 92 || m == 112) return fuelInfo(NuclearCraft.baseRFHEAOx, NuclearCraft.baseFuelHEAOx, NuclearCraft.baseHeatHEAOx);
 		else if (m == 93 || m == 113 || m == 95 || m == 115 || m == 97 || m == 117) return fuelInfo(NuclearCraft.baseRFLECOx, NuclearCraft.baseFuelLECOx, NuclearCraft.baseHeatLECOx);
 		else if (m == 94 || m == 114 || m == 96 || m == 116 || m == 98 || m == 118) return fuelInfo(NuclearCraft.baseRFHECOx, NuclearCraft.baseFuelHECOx, NuclearCraft.baseHeatHECOx);
+		else if (m == 141) return fuelInfo(150, 5000/3, 100);
 		
 		else if (m == 36) return fuelInfo("Boron-11", "Lithium-7");
 		else if (m == 37) return fuelInfo("Deuterium", "Tritium", "Helium-3", "Lithium-6");
@@ -237,6 +238,7 @@ public class ItemFuel extends ItemMeta {
 			case 138: return "dHEC247CellOxide";
 			case 139: return "AmRTGCell";
 			case 140: return "CfRTGCell";
+			case 141: return "BBCCell";
 			default: return this.getUnlocalizedName();
 		}
 	}
