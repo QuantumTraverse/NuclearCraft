@@ -76,7 +76,7 @@ public class TileFissionReactor extends TileGeneratorInventory {
 		"LEC243CellOxide", "HEC243CellOxide",
 		"LEC245CellOxide", "HEC245CellOxide",
 		"LEC247CellOxide", "HEC247CellOxide",
-		"TBUCellOxide"
+		"TBUCellOxide", "BBCCell"
 	};
 	
 	public static String[] fuelTypes = {
@@ -104,7 +104,7 @@ public class TileFissionReactor extends TileGeneratorInventory {
 		"LEC-Ox", "HEC-Ox",
 		"LEC-Ox", "HEC-Ox",
 		"LEC-Ox", "HEC-Ox",
-		"TBU-Ox"
+		"TBU-Ox", "BBC"
 	};
 
 	public void updateEntity() {
@@ -372,6 +372,13 @@ public class TileFissionReactor extends TileGeneratorInventory {
 	            	baseHeat = NuclearCraft.baseHeatTBUOx;
 	        	}
 				
+			//BBC
+	        	if (fueltype == 41) {
+	        		baseRF = 150;
+	            	baseFuel = 5000/3;
+	            	baseHeat = 100;
+	        	}
+				
 				energyThisTick += baseRF*(10000*pMult + heat)*(numberOfCells + 2*adj1 + 3*adj2 + 4*adj3 + 5*adj4 + 6*adj5 + 7*adj6) /* *Math.cbrt((lx - 2)*(ly - 2)*(lz - 2)) */ /1000000;
 				heatThisTick += baseHeat*(numberOfCells + 3*adj1 + 6*adj2 + 10*adj3 + 15*adj4 + 21*adj5 + 28*adj6);
 				fuelThisTick += (numberOfCells + adj1 + adj2 + adj3 + adj4 + adj5 + adj6)*baseFuel/NuclearCraft.fissionEfficiency;
@@ -533,6 +540,12 @@ public class TileFissionReactor extends TileGeneratorInventory {
 	        	if (fueltype == 40) {
 	        		baseRF = NuclearCraft.baseRFTBUOx;
 	            	baseHeat = NuclearCraft.baseHeatTBUOx;
+	        	}
+				
+			//BBC
+	        	if (fueltype == 41) {
+	        		baseRF = 150;
+	            	baseHeat = 100;
 	        	}
 				
 				fakeEnergyThisTick += baseRF*(10000*pMult + heat)*(numberOfCells + 2*adj1 + 3*adj2 + 4*adj3 + 5*adj4 + 6*adj5 + 7*adj6) /* *Math.cbrt((lx - 2)*(ly - 2)*(lz - 2))*/ /1000000;
