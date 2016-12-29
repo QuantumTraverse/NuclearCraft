@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemFuel extends ItemMeta {
 
 	public ItemFuel() {
-		super("fuel", "fuel", 141);
+		super("fuel", "fuel", 142);
 	}
 	
 	@SuppressWarnings({ "rawtypes" })
